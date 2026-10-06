@@ -1,0 +1,12 @@
+# Render 部署配置（Blueprint）
+# 在 https://dashboard.render.com 选择 New -> Blueprint 并连接本仓库即可自动创建服务；
+# 也可以手动新建 Web Service 时按下述命令填写。
+services:
+  - type: web
+    name: 832401327-calculator-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # src 目录加入 Python 路径后以 app:app 加载（app.py 中 from controller.api import ...）
+    startCommand: gunicorn --pythonpath src app:app --bind 0.0.0.0:$PORT
+    healthCheckPath: /api/health
