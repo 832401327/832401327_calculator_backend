@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# 运行时生成的 SQLite 数据库文件
+data/
+
+# IDE
+.idea/
+.vscode/
